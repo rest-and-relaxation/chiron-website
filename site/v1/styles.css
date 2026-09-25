@@ -1,4 +1,4 @@
-@font-face{font-family:Aspekta;src:url("../../design/AspektaVF.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:Aspekta;src:url("../assets/AspektaVF.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
 :root{--bg:#0e0e0e;--paper:#f2f0ec;--muted:#a19d96;--green:#2cc956;--red:#ff5343;--rule:#f2f0ec33;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;--page-pad:48px;--ease:cubic-bezier(.2,.8,.2,1)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}

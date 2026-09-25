@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0b0a">
+    <title>Chiron Global Tech — Homepage Concepts</title>
+    <style>
+      @font-face{font-family:Aspekta;src:url('assets/AspektaVF.ttf') format('truetype');font-display:swap}
+      :root{color-scheme:dark;--ink:#0b0b0a;--paper:#f2f0ec;--muted:#9e9c97;--line:rgba(242,240,236,.22);--green:#2cc956}*{box-sizing:border-box}body{min-height:100svh;margin:0;display:grid;place-items:center;background:var(--ink);color:var(--paper);font-family:Aspekta,Arial,sans-serif}main{width:min(100%,1000px);padding:clamp(2rem,6vw,5rem) clamp(1.25rem,4vw,3rem)}.eyebrow{margin:0 0 1rem;font:400 .68rem/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.eyebrow i{display:inline-block;width:.55rem;height:.55rem;margin-right:.7rem;background:var(--green)}h1{max-width:12ch;margin:0;font-size:clamp(3rem,7.5vw,6.5rem);font-weight:540;letter-spacing:-.07em;line-height:.86}.intro{max-width:39rem;margin:2.4rem 0 4rem;color:var(--muted);font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.55}.concepts{border-top:1px solid var(--line)}.concept{display:grid;grid-template-columns:5rem minmax(0,1fr) auto;gap:1.5rem;align-items:center;padding:2.1rem 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:padding .25s ease,background .25s ease}.concept:hover,.concept:focus-visible{padding-inline:1rem;background:rgba(255,255,255,.035);outline:none}.number,.concept span{font:400 .68rem/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}.number{color:var(--muted)}h2{margin:0;font-size:clamp(1.8rem,3.3vw,3rem);font-weight:560;letter-spacing:-.05em}.concept p{margin:.45rem 0 0;color:var(--muted);line-height:1.45}.concept span{white-space:nowrap}.concept:hover span,.concept:focus-visible span{color:var(--green)}footer{display:flex;justify-content:space-between;gap:1rem;margin-top:4rem;color:var(--muted);font:400 .62rem/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.11em;text-transform:uppercase}@media(max-width:620px){.concept{grid-template-columns:2.8rem 1fr;gap:1rem}.concept span{grid-column:2}.concept{padding-block:1.6rem}.concept:hover,.concept:focus-visible{padding-inline:.55rem}footer{display:block;line-height:1.9}}
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow"><i></i>Chiron Global Tech / Client Review</p>
+      <h1>Choose a homepage concept.</h1>
+      <p class="intro">Two directions for the Chiron Global Tech homepage. Open either concept to explore its content, interaction and visual system.</p>
+      <nav class="concepts" aria-label="Homepage concepts">
+        <a class="concept" href="v1/"><b class="number">01</b><div><h2>Homepage V1</h2><p>A cinematic, image-led direction with a tactical product focus.</p></div><span>View concept ↗</span></a>
+        <a class="concept" href="v2/"><b class="number">02</b><div><h2>Homepage V2</h2><p>A more typographic direction organised around pathways and product systems.</p></div><span>View concept ↗</span></a>
+      </nav>
+      <footer><span>Chiron Global Tech</span><span>Concept review / 2026</span></footer>
+    </main>
+  </body>
+</html>
