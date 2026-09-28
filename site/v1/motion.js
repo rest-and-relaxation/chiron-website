@@ -37,7 +37,61 @@
       });
     }
 
-    reveal('.manifesto .section-label, .manifesto h2', '.manifesto', { stagger: 0.14, y: 26 });
+    reveal('.manifesto .section-label', '.manifesto', { y: 26 });
+
+    function revealManifestoLines() {
+      const copy = document.querySelector('.manifesto h2');
+      if (!copy || copy.dataset.linesReady) return;
+
+      const text = copy.textContent.trim();
+      copy.dataset.linesReady = 'true';
+      copy.setAttribute('aria-label', text);
+      copy.innerHTML = text.split(/\s+/).map(word => `<span class="manifesto-word" aria-hidden="true">${word}&nbsp;</span>`).join('');
+
+      const groups = [];
+      Array.from(copy.children).forEach(word => {
+        const lastGroup = groups.at(-1);
+        if (!lastGroup || Math.abs(lastGroup.top - word.offsetTop) > 1) {
+          groups.push({ top: word.offsetTop, words: [word] });
+        } else {
+          lastGroup.words.push(word);
+        }
+      });
+
+      const lines = document.createDocumentFragment();
+      groups.forEach(group => {
+        const line = document.createElement('span');
+        const inner = document.createElement('span');
+        line.className = 'manifesto-line';
+        inner.className = 'manifesto-line__inner';
+        group.words.forEach(word => inner.append(word));
+        line.append(inner);
+        lines.append(line);
+      });
+      copy.replaceChildren(lines);
+
+      gsap.from(copy.querySelectorAll('.manifesto-line__inner'), {
+        autoAlpha: 0,
+        yPercent: 105,
+        duration: 0.9,
+        stagger: 0.12,
+        ease: 'power3.out',
+        clearProps: 'opacity,transform,visibility,willChange',
+        scrollTrigger: {
+          trigger: copy,
+          start: 'top 80%',
+          once: true,
+          refreshPriority: -1
+        }
+      });
+    }
+
+    const startManifestoLines = () => {
+      revealManifestoLines();
+      ScrollTrigger.refresh();
+    };
+    document.fonts?.ready ? document.fonts.ready.then(startManifestoLines) : startManifestoLines();
+
     reveal('.gallery-card', '.gallery', { stagger: 0.12, y: 38, duration: 0.9, start: 'top 85%' });
     reveal('.footage-heading > *', '.footage', { stagger: 0.12, y: 28 });
     reveal('.video-card', '.video-grid', { stagger: 0.12, y: 32, start: 'top 84%' });
