@@ -46,13 +46,26 @@
       const text = copy.textContent.trim();
       copy.dataset.linesReady = 'true';
       copy.setAttribute('aria-label', text);
-      copy.innerHTML = text.split(/\s+/).map(word => `<span class="manifesto-word" aria-hidden="true">${word}&nbsp;</span>`).join('');
+      copy.replaceChildren();
+      const words = text.split(/\s+/).map(value => {
+        const word = document.createElement('span');
+        word.className = 'manifesto-word';
+        word.setAttribute('aria-hidden', 'true');
+        word.textContent = `${value} `;
+        copy.append(word);
+        return word;
+      });
 
+      // Read each word's rendered rectangle. offsetTop belongs to the nearest
+      // offset parent and can report an identical value across wrapped inline text.
       const groups = [];
-      Array.from(copy.children).forEach(word => {
+      words.forEach(word => {
+        const range = document.createRange();
+        range.selectNodeContents(word);
+        const top = range.getBoundingClientRect().top;
         const lastGroup = groups.at(-1);
-        if (!lastGroup || Math.abs(lastGroup.top - word.offsetTop) > 1) {
-          groups.push({ top: word.offsetTop, words: [word] });
+        if (!lastGroup || Math.abs(lastGroup.top - top) > 1) {
+          groups.push({ top, words: [word] });
         } else {
           lastGroup.words.push(word);
         }
@@ -64,6 +77,8 @@
         const inner = document.createElement('span');
         line.className = 'manifesto-line';
         inner.className = 'manifesto-line__inner';
+        const finalWord = group.words.at(-1);
+        finalWord.textContent = finalWord.textContent.trimEnd();
         group.words.forEach(word => inner.append(word));
         line.append(inner);
         lines.append(line);
