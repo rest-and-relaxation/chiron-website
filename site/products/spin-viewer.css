@@ -1,0 +1,33 @@
+/* Compact viewpoints above the armour; rotation slider below. */
+.products-elite-image.spin-viewer{background:#000}
+.spin-stage{position:absolute;inset:60px 0 72px;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.spin-stage:focus-visible{outline:2px solid var(--green);outline-offset:-4px}
+.spin-viewer.is-dragging .spin-stage{cursor:grabbing}
+.products-elite-image.spin-viewer img{padding:20px;width:100%;height:100%;object-fit:contain;filter:none;transform:none;transition:none;pointer-events:none}
+.spin-controls{position:absolute;bottom:0;left:0;right:0;height:72px;padding:14px 24px;border-top:1px solid var(--products-rule);background:#000}
+.spin-controls[hidden],.spin-actions[hidden]{display:none}
+.spin-actions{position:absolute;top:16px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.spin-actions button{display:grid;place-items:center;min-width:58px;height:32px;padding:0 14px;border:1px solid var(--products-rule);background:transparent;color:var(--paper);font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s ease,color .2s ease}
+.spin-actions button:disabled{opacity:.4;cursor:default}
+.spin-actions button:not(:disabled):is(:hover,:focus-visible),.spin-actions button[aria-pressed=true]:not(:disabled){background:var(--paper);color:#000}
+.spin-range{display:block;appearance:none;-webkit-appearance:none;width:100%;min-width:0;height:44px;margin:0;background:transparent;cursor:ew-resize;accent-color:var(--paper);touch-action:pan-y}
+.spin-range::-webkit-slider-runnable-track{height:2px;background:rgba(242,240,236,.4)}
+.spin-range::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:18px;height:18px;margin-top:-8px;border:1px solid var(--paper);border-radius:50%;background:var(--paper)}
+.spin-range::-moz-range-track{height:2px;background:rgba(242,240,236,.4)}
+.spin-range::-moz-range-thumb{width:16px;height:16px;border:1px solid var(--paper);border-radius:50%;background:var(--paper)}
+.spin-range:disabled{opacity:.4;cursor:default}
+.spin-range:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.spin-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.spin-viewer[data-state=error] .spin-status{position:static;display:block;width:auto;height:auto;margin:0;clip:auto;white-space:normal;font:12px/1.4 Aspekta,Arial,sans-serif;color:var(--paper)}
+.spin-viewer[data-state=error] .spin-range{display:none}
+@media(max-width:1000px){.spin-controls{padding-inline:16px}}
+@media(max-width:560px){.products-elite-image.spin-viewer{aspect-ratio:3/4;min-height:540px}.products-elite-image.spin-viewer img{padding:12px}}
+@media(pointer:coarse){.spin-actions button{height:44px}.spin-stage{top:72px}}
+
+/* First-use affordance beside the model, dismissed on interaction. */
+.spin-hint{position:absolute;z-index:1;right:clamp(16px,4%,32px);top:42%;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;color:var(--paper);opacity:.85;transition:opacity .3s ease}
+.spin-hint svg{width:48px;height:48px;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.spin-hint span{font:10px/1.4 var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.spin-viewer.has-interacted .spin-hint{opacity:0}
+@media(max-width:560px){.spin-hint{right:10px;top:38%}.spin-hint svg{width:40px;height:40px}.spin-hint span{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.spin-hint{transition:none}}

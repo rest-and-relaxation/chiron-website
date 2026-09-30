@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "python3 scripts/dev.py"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}
