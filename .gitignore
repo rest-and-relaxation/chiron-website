@@ -1,2 +1,5 @@
-homepages-site.tar.gz
+node_modules/
 dist/
+archive/
+.DS_Store
+*.log
