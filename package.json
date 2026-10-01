@@ -1,4 +1,6 @@
 {
+  "name": "chiron-website",
+  "private": true,
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "python3 scripts/dev.py"

@@ -21,8 +21,4 @@ Enquiry buttons use `mailto:`; the final recipient address still needs to be sup
 
 ## Asset optimisation
 
-The October 2026 pass reduced the website from 24.2 MB to 5.9 MB, including responsive image variants. Photos use WebP, logos retain transparency and lossless encoding, and the 18 rotation frames retain their original dimensions. Favicon PNG/ICO and the social JPEG retain conventional formats.
-
-Mobile browsers select smaller images through `srcset`. Below-fold images load lazily; the Vimeo API loads only after playback is requested. Existing fonts and animation libraries are already small, and the vendor libraries are minified.
-
-`asset-optimization-report.json` records per-asset savings. Originals and superseded posters are saved in `archive/asset-originals-2026-10-01/`, outside Git and delivery. `scripts/optimize-assets.py` documents the completed migration and requires Pillow with WebP support; it refuses to rerun once the report exists.
+Production assets were reduced in October 2026 (about 24.2 MB → 5.9 MB): WebP photos with `srcset`, transparent lossless logos, lazy below-fold images, and deferred Vimeo. Originals live in local `archive/` (not in Git). The one-shot migration script and report are retired.
