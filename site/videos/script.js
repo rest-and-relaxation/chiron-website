@@ -3,9 +3,9 @@
   const container = document.querySelector('#featured-player');
   const title = document.querySelector('#featured-title');
   const label = document.querySelector('#player-label');
-  const watch = document.querySelector('#watch-vimeo');
   const status = document.querySelector('.player-status');
   const featured = document.querySelector('#featured');
+  const header = document.querySelector('.shell-header');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (!container || !choices.length) return;
   const posterTemplate = container.querySelector('.player-poster').cloneNode(true);
@@ -13,8 +13,30 @@
   let player;
   let loadTimer;
   let generation = 0;
+  let apiPromise;
+  const loadPlayerApi = () => {
+    if (window.Vimeo?.Player) return Promise.resolve();
+    return apiPromise ||= new Promise(resolve => {
+      const script = document.createElement('script');
+      script.src = 'https://player.vimeo.com/api/player.js';
+      script.onload = script.onerror = resolve;
+      document.head.append(script);
+      // The embedded player can still play if the optional API is unavailable.
+      window.setTimeout(resolve, 8000);
+    });
+  };
 
-  const play = () => {
+  const alignPlayer = () => featured.scrollIntoView({
+    behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start'
+  });
+  if (header) {
+    const updateHeaderHeight = () => document.body.style.setProperty('--video-header-height', `${header.getBoundingClientRect().height}px`);
+    updateHeaderHeight();
+    new ResizeObserver(updateHeaderHeight).observe(header);
+  }
+
+  const play = async () => {
+    alignPlayer();
     const version = ++generation;
     clearTimeout(loadTimer);
     player?.destroy().catch(() => {});
@@ -37,11 +59,13 @@
       if (version !== generation) return;
       clearTimeout(loadTimer);
       container.setAttribute('aria-busy', 'false');
-      status.textContent = 'If the video does not load, use “Watch on Vimeo” to open it directly.';
+      status.textContent = 'The video could not load. Please refresh the page and try again.';
     };
     loadTimer = window.setTimeout(unavailable, 15000);
     iframe.addEventListener('error', unavailable);
     container.replaceChildren(iframe);
+    await loadPlayerApi();
+    if (version !== generation) return;
     if (window.Vimeo?.Player) {
       player = new window.Vimeo.Player(iframe);
       player.ready().then(() => {
@@ -67,18 +91,17 @@
     selected = choice;
     choices.forEach(button => button.setAttribute('aria-pressed', String(button === choice)));
     title.textContent = choice.dataset.title;
-    const embed = new URL(choice.dataset.embed);
-    const hash = embed.searchParams.get('h');
-    watch.href = `https://vimeo.com/${embed.pathname.split('/').pop()}${hash ? `/${hash}` : ''}`;
     if (autoplay) {
       play();
     } else {
       const poster = posterTemplate.cloneNode(true);
-      poster.querySelector('img').src = choice.dataset.poster;
+      const image = poster.querySelector('img');
+      image.src = choice.dataset.poster;
+      image.srcset = `${choice.dataset.poster.replace('.webp', '-480.webp')} 480w, ${choice.dataset.poster} 1280w`;
       poster.setAttribute('aria-label', `Play ${choice.dataset.title}`);
       container.replaceChildren(poster);
     }
-    if (scroll) featured.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+    if (scroll && !autoplay) alignPlayer();
   };
   container.addEventListener('click', event => {
     if (event.target.closest('.player-poster')) play();

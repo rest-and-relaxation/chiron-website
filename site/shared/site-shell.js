@@ -15,7 +15,7 @@
       `<a href="${key === 'home' ? href : new URL(href.replace('../', ''), siteRoot).href}"${page === key ? ' aria-current="page"' : ''}>${label}</a>`
     ).join('');
     mount.outerHTML = `<header class="shell-header" id="top">
-      <a class="shell-brand" href="${siteRoot.href}" aria-label="Chiron Global Tech home"><img src="${new URL('assets/chiron-logo.png', siteRoot).href}" alt="Chiron Global Tech"></a>
+      <a class="shell-brand" href="${siteRoot.href}" aria-label="Chiron Global Tech home"><img src="${new URL('assets/chiron-logo.webp', siteRoot).href}" alt="Chiron Global Tech"></a>
       <button class="shell-menu" type="button" aria-expanded="false" aria-controls="shell-nav" data-shell-menu><span>Menu</span><i aria-hidden="true"></i><i aria-hidden="true"></i></button>
       <nav class="shell-nav" id="shell-nav" aria-label="Primary navigation" data-shell-nav>
         ${navLinks}<a class="shell-contact ui-button ui-button--secondary" href="mailto:?subject=Chiron%20Global%20Tech%20enquiry"${page === 'contact' ? ' aria-current="page"' : ''}>Contact <span aria-hidden="true">↗</span></a>
@@ -37,9 +37,9 @@
       <div class="global-footer__links">
         <div class="global-footer__statement"><p>Protect those who serve.<br>Prepare them to perform.</p><p class="global-footer__trademark">Chiron-X™ Series, Chiron-X1™, Chiron-X1R™ and Chiron-X3™ are trademarks of Chiron Global Tech. Pty Ltd.</p></div>
         <div><span>Explore</span><a href="${new URL('products/', siteRoot).href}">Products</a><a href="${new URL('about/#combatives', siteRoot).href}">Training &amp; capabilities</a><a href="${new URL('about/#technical', siteRoot).href}">Technical</a><a href="${new URL('videos/', siteRoot).href}">Videos</a></div>
-        <div><span>Get in touch</span><a href="https://www.linkedin.com/company/chironglobal/home/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/chirongt" target="_blank" rel="noopener noreferrer">X ↗</a><a href="https://www.facebook.com/ChironGlobalTech" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div>
+        <div><span>Get in touch</span><a href="https://au.linkedin.com/company/chironglobal" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/chirongt" target="_blank" rel="noopener noreferrer">X ↗</a><a href="https://www.facebook.com/ChironGlobalTech" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div>
       </div>
-      <div class="global-footer__wordmark" aria-hidden="true"><img src="${new URL('assets/chiron-horse.png', siteRoot).href}" alt=""><span>CHIRON</span><strong>GLOBAL</strong><em>TECH</em></div>
+      <div class="global-footer__wordmark" aria-hidden="true"><img src="${new URL('assets/chiron-horse.webp', siteRoot).href}" alt=""><span>CHIRON</span><strong>GLOBAL</strong><em>TECH</em></div>
       <div class="global-footer__bottom"><small>© CHIRON GLOBAL TECH</small><small>© 2024 Chiron Global Tech. Pty Ltd, ABN 82 643 458 539, All rights reserved.</small></div>
     </footer>`;
   }
