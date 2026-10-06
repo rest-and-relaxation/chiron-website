@@ -1,7 +1,7 @@
 /* Shared interior-page language; page layouts live alongside each route. */
 .interior-page{overflow-x:clip}
 .interior-page .site-header{background:rgba(14,14,14,.72);border-bottom:1px solid rgba(242,240,236,.14);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-.interior-page .desktop-nav a[aria-current="page"],.interior-page .mobile-nav a[aria-current="page"]{color:var(--green)}
+.interior-page .desktop-nav a[aria-current="page"],.interior-page .mobile-nav a[aria-current="page"]{color:var(--accent)}
 .interior-page .site-header .brand img{object-fit:contain}
 .interior-hero{position:relative;isolation:isolate;padding:168px var(--page-pad) 96px;background:var(--bg);overflow:hidden}
 .interior-hero h1{font-size:clamp(66px,8.35vw,120px);font-weight:600;line-height:.95;letter-spacing:-.027em;margin:24px 0 0;text-transform:uppercase}
@@ -11,10 +11,10 @@
 .interior-media:is(:hover,:focus-within) img{filter:grayscale(0);transform:scale(1.015)}
 .interior-media::after{content:"";position:absolute;inset:45% 0 0;pointer-events:none;background:linear-gradient(transparent,rgba(14,14,14,.72))}
 .interior-media-caption{position:absolute;z-index:1;bottom:27px;left:var(--page-pad);right:var(--page-pad);display:flex;justify-content:space-between;gap:24px;font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase}
-.interior-media-caption span:first-child::before{content:"";display:inline-block;width:6px;height:6px;background:var(--green);margin-right:10px;vertical-align:2px}
+.interior-media-caption span:first-child::before{content:"";display:inline-block;width:6px;height:6px;background:var(--accent);margin-right:10px;vertical-align:2px}
 .interior-section{padding:112px var(--page-pad);border-top:1px solid var(--rule)}
 .interior-section .section-kicker{font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#f2f0ec80}
-.interior-section .section-kicker::before{content:"";display:inline-block;width:7px;height:7px;background:var(--green);margin-right:12px;vertical-align:1px}
+.interior-section .section-kicker::before{content:"";display:inline-block;width:7px;height:7px;background:var(--accent);margin-right:12px;vertical-align:1px}
 .interior-page a, .interior-page button{-webkit-tap-highlight-color:transparent}
 .interior-page .site-footer{border-top:1px solid var(--rule)}
 @media(max-width:800px){.interior-hero{padding-top:146px;padding-bottom:78px}.interior-hero h1{font-size:clamp(62px,12vw,96px)}.interior-section{padding-top:88px;padding-bottom:88px}.interior-media-caption{bottom:20px}}

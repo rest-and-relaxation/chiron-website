@@ -97,7 +97,8 @@
       const poster = posterTemplate.cloneNode(true);
       const image = poster.querySelector('img');
       image.src = choice.dataset.poster;
-      image.srcset = `${choice.dataset.poster.replace('.webp', '-480.webp')} 480w, ${choice.dataset.poster} 1280w`;
+      const thumbnail = choice.querySelector('.film-thumbnail img');
+      image.srcset = thumbnail.srcset;
       poster.setAttribute('aria-label', `Play ${choice.dataset.title}`);
       container.replaceChildren(poster);
     }

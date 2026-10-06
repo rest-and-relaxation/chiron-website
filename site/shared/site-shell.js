@@ -2,8 +2,8 @@
   const siteRoot = new URL('../', document.currentScript.src);
   // The homepage and interior pages share one navigation template.
   const mount = document.querySelector('[data-site-header]');
+  const page = mount?.dataset.page || '';
   if (mount) {
-    const page = mount.dataset.page || '';
     const links = [
       ['home', 'Home', siteRoot.href],
       ['about', 'About us', '../about/'],
@@ -18,16 +18,21 @@
       <a class="shell-brand" href="${siteRoot.href}" aria-label="Chiron Global Tech home"><img src="${new URL('assets/chiron-logo.webp', siteRoot).href}" alt="Chiron Global Tech"></a>
       <button class="shell-menu" type="button" aria-expanded="false" aria-controls="shell-nav" data-shell-menu><span>Menu</span><i aria-hidden="true"></i><i aria-hidden="true"></i></button>
       <nav class="shell-nav" id="shell-nav" aria-label="Primary navigation" data-shell-nav>
-        ${navLinks}<a class="shell-contact ui-button ui-button--secondary" href="mailto:?subject=Chiron%20Global%20Tech%20enquiry"${page === 'contact' ? ' aria-current="page"' : ''}>Contact <span aria-hidden="true">↗</span></a>
+        ${navLinks}<a class="shell-contact ui-button ui-button--secondary" href="mailto:enquiries@chironglobal.tech?subject=Chiron%20Global%20Tech%20enquiry"${page === 'contact' ? ' aria-current="page"' : ''}>Contact <span aria-hidden="true"><svg class="ui-icon ui-icon--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
       </nav>
     </header>`;
   }
 
   const enquiryMount = document.querySelector('[data-site-enquiry]');
   if (enquiryMount) {
+    const enquiry = page === 'home'
+      ? { title: 'Need to assess the right path for your team?', copy: 'Tell Chiron about your use case, organisation and timing.', action: 'Discuss your requirements' }
+      : { title: 'Get In Touch', copy: page === 'products'
+        ? "Tell us about your use case, organisation and timeline. We'll help you choose between X1 Elite, X1H and X1R — then prove it on your range."
+        : 'Contact us for more information.', action: 'Contact us' };
     enquiryMount.outerHTML = `<section class="site-enquiry interior-reveal" id="contact" aria-labelledby="enquiry-title">
-      <div><h2 id="enquiry-title">Need to assess the right path for your team?</h2></div>
-      <div class="site-enquiry__action"><p>Tell Chiron about your use case, organisation and timing.</p><a class="ui-button ui-button--secondary" href="mailto:?subject=Chiron%20Global%20Tech%20enquiry">Discuss your requirements <span aria-hidden="true">↗</span></a></div>
+      <div><h2 id="enquiry-title">${enquiry.title}</h2></div>
+      <div class="site-enquiry__action"><p>${enquiry.copy}</p><p class="site-enquiry__email">Send us a message at <a href="mailto:enquiries@chironglobal.tech">enquiries@chironglobal.tech</a>.</p><a class="ui-button ui-button--secondary" href="mailto:enquiries@chironglobal.tech?subject=Chiron%20Global%20Tech%20enquiry">${enquiry.action} <span aria-hidden="true"><svg class="ui-icon ui-icon--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a></div>
     </section>`;
   }
 
@@ -37,7 +42,7 @@
       <div class="global-footer__links">
         <div class="global-footer__statement"><p>Protect those who serve.<br>Prepare them to perform.</p><p class="global-footer__trademark">Chiron-X™ Series, Chiron-X1™, Chiron-X1R™ and Chiron-X3™ are trademarks of Chiron Global Tech. Pty Ltd.</p></div>
         <div><span>Explore</span><a href="${new URL('products/', siteRoot).href}">Products</a><a href="${new URL('about/#combatives', siteRoot).href}">Training &amp; capabilities</a><a href="${new URL('about/#technical', siteRoot).href}">Technical</a><a href="${new URL('videos/', siteRoot).href}">Videos</a></div>
-        <div><span>Get in touch</span><a href="https://au.linkedin.com/company/chironglobal" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/chirongt" target="_blank" rel="noopener noreferrer">X ↗</a><a href="https://www.facebook.com/ChironGlobalTech" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div>
+        <div><span>Get in touch</span><a href="https://au.linkedin.com/company/chironglobal" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="ui-icon ui-icon--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a href="https://x.com/chirongt" target="_blank" rel="noopener noreferrer">X <svg class="ui-icon ui-icon--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a href="https://www.facebook.com/ChironGlobalTech" target="_blank" rel="noopener noreferrer">Facebook <svg class="ui-icon ui-icon--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
       </div>
       <div class="global-footer__wordmark" aria-hidden="true"><img src="${new URL('assets/chiron-horse.webp', siteRoot).href}" alt=""><span>CHIRON</span><strong>GLOBAL</strong><em>TECH</em></div>
       <div class="global-footer__bottom"><small>© CHIRON GLOBAL TECH</small><small>© 2024 Chiron Global Tech. Pty Ltd, ABN 82 643 458 539, All rights reserved.</small></div>

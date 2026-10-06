@@ -5,7 +5,7 @@
 .about-hero-bottom{position:absolute;left:var(--page-pad);right:var(--page-pad);bottom:150px;display:flex;justify-content:space-between;align-items:end}
 .about-hero-bottom p{margin:0;color:#f2f0ec80;font:10px/1.45 var(--mono);letter-spacing:.12em}
 .about-hero-bottom a{display:grid;place-items:center;width:44px;height:44px;font:24px Aspekta,Arial,sans-serif;transition:transform .3s var(--ease),color .3s}
-.about-hero-bottom a:is(:hover,:focus-visible){transform:translateY(5px);color:var(--green)}
+.about-hero-bottom a:is(:hover,:focus-visible){transform:translateY(5px);color:var(--accent)}
 .about-media{position:relative;margin:0;overflow:hidden;background:#171a19}
 .about-hero-media{height:520px}
 .about-media img{width:100%;height:100%;object-fit:cover}
@@ -20,14 +20,14 @@
 .about-intro{min-height:571px;padding-top:93px;padding-bottom:96px}
 .about-intro-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;max-width:1064px}
 .about-intro-columns p{margin:0 0 24px}
-.about-intro-columns .about-lede{font-size:15px!important;color:#f2f0ecd9!important}
+.about-page .about-section .about-intro-columns p.about-lede{font-size:clamp(24px,2.1vw,30px);font-weight:600;line-height:1.2;letter-spacing:-.03em;color:var(--paper,#f2f0ec)}
 .about-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0 var(--page-pad);border-block:1px solid var(--rule)}
 .about-stat{height:292px;padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--rule)}
 .about-stat:not(:first-child){padding-left:28px}
 .about-stat:last-child{border-right:0}
 .about-stat>div{display:flex;flex-direction:column;gap:10px}
 .about-stat strong{font-size:clamp(23px,2.2vw,32px);font-weight:500;letter-spacing:-.03em;white-space:nowrap}
-.about-stat>div>span{color:#f2f0ec80;font:10px var(--mono);letter-spacing:.13em}
+.about-stat>div>span{color:#f2f0ec80;font:15px/1.4 var(--mono);letter-spacing:.08em}
 .stat-icon{display:block;width:auto;height:56px;max-width:63px;object-fit:contain;object-position:left center}
 .about-combatives{min-height:1386px}
 .about-copy-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px}
@@ -119,7 +119,7 @@
   .about-stat:nth-child(odd){padding-left:0!important}
   .about-stat:nth-child(even){padding-left:14px!important}
   .about-stat strong{font-size:clamp(17px,5vw,22px);white-space:normal}
-  .about-stat>div>span{font-size:8px;line-height:1.4}
+  .about-stat>div>span{font-size:12px;line-height:1.4;letter-spacing:.05em}
   .stat-icon{height:42px;max-width:47px}
   .about-quote{margin:45px 0 35px;padding:25px 0}
   .about-quote p{font-size:21px!important}
