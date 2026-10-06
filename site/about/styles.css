@@ -150,7 +150,7 @@
 .about-page .about-combatives-media img,.about-page .about-lab-media img{filter:none}
 .about-page .about-combatives-media:hover img,.about-page .about-lab-media:hover img{filter:none}
 .about-page .about-combatives-media img{object-position:center center}
-.about-page .about-lab-media img{object-position:center 43%}
+.about-page .about-lab-media img{object-position:center 50%}
 .about-page .about-lab-media::after{display:none}
 @media(prefers-reduced-motion:reduce){.about-hero-bottom a{transition:none}}
 @media(prefers-reduced-motion:reduce){.about-media img,.about-combatives-media img,.about-riot>img{transition:none}}
