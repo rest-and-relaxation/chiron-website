@@ -21,7 +21,8 @@
 .region:not(:first-child)>.index,.region:not(:first-child)>h3{padding-left:0}
 .partner-marks .partner-logo-cell{margin-right:-1px;margin-bottom:-1px}
 .partner-logo-cell{display:flex;align-items:center;justify-content:center;min-width:0;height:140px;padding:24px;border:1px solid rgba(242,240,236,.16);background:var(--bg);transition:border-color .3s ease}
-.partner-logo-cell:hover{border-color:rgba(242,240,236,.4)}
+.partner-logo-cell:is(:hover,:focus-visible){border-color:rgba(242,240,236,.4)}
+a.partner-logo-cell:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
 .partner-marks .partner-logo-cell img{width:min(100%,var(--logo-width,180px));height:var(--logo-height,72px);max-width:none;max-height:none;object-fit:contain}
 .partner-marks img[alt="1MOA"]{--logo-width:110px;--logo-height:110px}
 .partner-marks img[alt="AMG Pro"]{--logo-width:178px;--logo-height:72px}
