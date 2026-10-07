@@ -3,7 +3,7 @@
 .spin-stage{position:absolute;inset:60px 0 72px;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
 .spin-stage:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
 .spin-viewer.is-dragging .spin-stage{cursor:grabbing}
-.products-elite-image.spin-viewer img{padding:20px;width:100%;height:100%;object-fit:contain;filter:none;transform:none;transition:none;pointer-events:none}
+.products-elite-image.spin-viewer img{padding:0;width:100%;height:100%;object-fit:contain;filter:none;transform:scale(1.04) translateY(-1.5%);transition:none;pointer-events:none}
 .spin-controls{position:absolute;bottom:0;left:0;right:0;height:72px;padding:14px 24px;border-top:1px solid var(--products-rule);background:#000}
 .spin-controls[hidden],.spin-actions[hidden]{display:none}
 .spin-actions{position:absolute;top:16px;left:0;right:0;display:flex;justify-content:center;gap:6px}
@@ -21,7 +21,7 @@
 .spin-viewer[data-state=error] .spin-status{position:static;display:block;width:auto;height:auto;margin:0;clip:auto;white-space:normal;font:12px/1.4 Aspekta,Arial,sans-serif;color:var(--paper)}
 .spin-viewer[data-state=error] .spin-range{display:none}
 @media(max-width:1000px){.spin-controls{padding-inline:16px}}
-@media(max-width:560px){.products-elite-image.spin-viewer{aspect-ratio:3/4;min-height:540px}.products-elite-image.spin-viewer img{padding:12px}}
+@media(max-width:560px){.products-elite-image.spin-viewer{aspect-ratio:3/4;min-height:540px}}
 @media(pointer:coarse){.spin-actions button{height:44px}.spin-stage{top:72px}}
 
 /* First-use affordance beside the model, dismissed on interaction. */
