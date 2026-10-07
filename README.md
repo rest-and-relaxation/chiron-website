@@ -17,7 +17,7 @@ Run `npm run build`. Upload the contents of `dist/` to the hosting document root
 
 Set `SITE_URL` to the final deployment URL when building to generate absolute social-preview URLs, for example `SITE_URL=https://example.com/ npm run build`.
 
-Enquiry buttons use `mailto:`; the final recipient address still needs to be supplied. Video playback uses the existing Vimeo embeds.
+Enquiry buttons use `mailto:enquiries@chironglobal.tech`. Video playback uses the existing Vimeo embeds.
 
 ## Asset optimisation
 
