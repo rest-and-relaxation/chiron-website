@@ -14,7 +14,7 @@
     const navLinks = links.map(([key, label, href]) =>
       `<a href="${key === 'home' ? href : new URL(href.replace('../', ''), siteRoot).href}"${page === key ? ' aria-current="page"' : ''}>${label}</a>`
     ).join('');
-    mount.outerHTML = `<header class="shell-header" id="top">
+    mount.outerHTML = `<header class="shell-header" id="site-header">
       <a class="shell-brand" href="${siteRoot.href}" aria-label="Chiron Global Tech home"><img src="${new URL('assets/chiron-logo.webp', siteRoot).href}" alt="Chiron Global Tech"></a>
       <button class="shell-menu" type="button" aria-expanded="false" aria-controls="shell-nav" data-shell-menu><span>Menu</span><i aria-hidden="true"></i><i aria-hidden="true"></i></button>
       <nav class="shell-nav" id="shell-nav" aria-label="Primary navigation" data-shell-nav>

@@ -22,3 +22,5 @@ Enquiry buttons use `mailto:enquiries@chironglobal.tech`. Video playback uses th
 ## Asset optimisation
 
 Production assets were reduced in October 2026 (about 24.2 MB → 5.9 MB): WebP photos with `srcset`, transparent lossless logos, lazy below-fold images, and deferred Vimeo. Originals live in local `archive/` (not in Git). The one-shot migration script and report are retired.
+
+Final handover audit (7 October 2026): the regenerated video thumbnails were converted to WebP at unchanged dimensions, saving another 1.5 MB. The delivery website is approximately 6.7 MB before ZIP compression. See `HANDOVER.md` for hosting and maintenance instructions.
