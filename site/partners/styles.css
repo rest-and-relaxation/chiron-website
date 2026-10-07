@@ -56,6 +56,6 @@
 @media(max-width:800px){.partner-hero{padding-bottom:78px}.partner-hero h1{margin:55px 0}}
 @media(max-width:620px){.partner-hero h1{margin:52px 0}}
 
-/* Preserve the supplied training photo colour and Figma framing. */
-.partner-lab-media>img,.partner-lab-media:hover>img{filter:none;object-position:center 18.5%}
+/* Keep the training photo framing; shared media rules handle grayscale and hover. */
+.partner-lab-media>img{object-position:center 18.5%}
 @media(max-width:700px){.partner-lab-media>img{object-position:56% 35%}}

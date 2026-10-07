@@ -147,8 +147,8 @@
 }
 
 /* About page uses the shared hero, imagery and enquiry modules. */
-.about-page .about-combatives-media img,.about-page .about-lab-media img{filter:none}
-.about-page .about-combatives-media:hover img,.about-page .about-lab-media:hover img{filter:none}
+.about-page .about-lab-media img{filter:none}
+.about-page .about-lab-media:hover img{filter:none}
 .about-page .about-combatives-media img{object-position:center center}
 .about-page .about-lab-media img{object-position:center 50%}
 .about-page .about-lab-media::after{display:none}
